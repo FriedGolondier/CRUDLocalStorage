@@ -13,7 +13,7 @@
 <body>
     <nav>
         <div class="container">
-            <a href="/PAGINA WEB/PAGINA-WEB COMPLETA-G-SHOP/index.html">Inicio</a>
+            <a href="../../index.html">Inicio</a>
         </div>
     </nav>
 
@@ -99,6 +99,16 @@
 
             <!-- Barra de búsqueda -->
             <div class="my-3 text-center">
+                <div class="form-group">
+                    <select id="busquedaCategoria" name="busquedaCategoria" required>
+                        <option selected disabled value="">Busqueda por categoría...</option>
+                        <option value="juegos">Juegos</option>
+                        <option value="consolas">Consolas</option>
+                        <option value="accesorios">Accesorios</option>
+                        <option value="coleccionables">Coleccionables</option>
+                    </select>
+                </div>
+                <br>
                 <input type="text" id="txtBuscar" placeholder="Buscar por ID o Nombre"
                     class="form-control w-50 d-inline-block">
                 <button id="btnBuscar" class="btn btn-primary ms-2">Buscar</button>

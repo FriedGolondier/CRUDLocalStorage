@@ -470,30 +470,115 @@ tr:hover td {
     font-size: 1.1rem;
 }
 .alerta-confirmacion {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 300px;
-    max-width: 90%;
-    background-color: #cce5ff;
+    position: fixed; /* Para que no se desplace con la página */
+    top: 50%; /* Centrar verticalmente */
+    left: 50%; /* Centrar horizontalmente */
+    transform: translate(-50%, -50%); /* Ajustar para el centro exacto */
+    background-color: rgba(204, 229, 255, 0.9); /* Fondo semitransparente */
     border: 1px solid #b8daff;
     color: #004085;
-    padding: 15px;
+    padding: 20px; /* Aumentar el espacio interior */
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    z-index: 1050;
-    transition: opacity 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sutil sombra */
+    z-index: 1050; /* Asegurarse de que esté por encima de otros elementos */
+    text-align: center; /* Centrar el texto dentro */
 }
+
+.alerta-confirmacion p {
+    margin-bottom: 15px; /* Más espacio debajo del mensaje */
+    font-size: 1.1rem;
+}
+
 .alerta-confirmacion button {
-    padding: 4px 10px;
-    font-size: 0.875rem;
-    margin-right: 5px;
+    padding: 8px 15px; /* Más espacio en los botones */
+    font-size: 0.9rem;
+    margin: 0 5px; /* Espacio entre los botones */
     border: none;
     border-radius: 5px;
-    background-color: #004085;
-    color: white;
     cursor: pointer;
 }
-.alerta-confirmacion button:hover {
-    background-color: #00376b;
+
+.alerta-confirmacion .btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.alerta-confirmacion .btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+
+
+/* Estilo para las notificaciones */
+.notificacion {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #28a745; /* Verde para éxito/informativo */
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.3s ease-out;
+    transform: translateX(-50%) translateY(-20px);
+}
+
+.notificacion.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.notificacion.error {
+    background-color: #dc3545; /* Rojo para error */
+}
+
+
+/* ==================== */
+/* RESPONSIVE DESIGN */
+/* ==================== */
+@media (max-width: 992px) {
+    form {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    nav .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    form {
+        grid-template-columns: 1fr;
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    section:first-of-type,
+    section:last-of-type {
+        padding: 1rem;
+    }
+
+    button[type="submit"] {
+        max-width: 100%;
+    }
+
+    .horizontal-scroll {
+        margin: 0;
+        padding: 0;
+    }
+
+    table {
+        min-width: 100%;
+    }
+
+    #txtBuscar {
+        width: 100%;
+        max-width: 100%;
+    }
 }

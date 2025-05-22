@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
         reader.onload = function (event) {
             const imagenBase64 = event.target.result;
 
-            let productos = JSON.parse(sessionStorage.getItem('productos')) || [];
+            let productos = JSON.parse(localStorage.getItem('productos')) || [];
 
             productos.push({
                 nombre: nombre,
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 imagen: imagenBase64
             });
 
-            sessionStorage.setItem('productos', JSON.stringify(productos));
+            localStorage.setItem('productos', JSON.stringify(productos));
             mostrarAlerta('Producto añadido exitosamente!', 'text-success');
             window.location.href = '/index.html';
         };
